@@ -30,6 +30,7 @@ public class DBUserDataAccessObject implements SignupUserDataAccessInterface,
     private static final String PASSWORD = "password";
     private static final String MESSAGE = "message";
     private final UserFactory userFactory;
+    private String currentUser;
 
     public DBUserDataAccessObject(UserFactory userFactory) {
         this.userFactory = userFactory;
@@ -154,6 +155,11 @@ public class DBUserDataAccessObject implements SignupUserDataAccessInterface,
 
     @Override
     public void setCurrentUser(String name) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.currentUser = name;
+    }
+
+    @Override
+    public String getCurrentUser() {
+        return currentUser;
     }
 }
